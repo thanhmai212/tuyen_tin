@@ -1,9 +1,16 @@
-with open('BASE.INP', 'r') as f:
-    n = int(f.readline())
-    nums = list(map(int, f.readline().split()))
-b = nums.copy()
-for i in range(1, len(nums) - 1):
-    if nums[i - 1] > nums[i] < nums[i + 1]:
-        b.remove(nums[i])
-with open('BASE.OUT', 'w') as f:
-    f.write(f"{len(b)}" + "\n" + " ".join(str(x) for x in b))
+with open("BASE.INP", "r") as fi:
+    n = int(fi.readline())
+    nums = list(map(int, fi.readline().split()))
+for i in range(n):
+    for k in range(i):
+        for l in range(i + 1, n - 1):
+            if nums[k] > nums[i] < nums[l]:
+                nums.remove(nums[i])
+count = 0
+for num in nums:
+    count += 1
+with open("BASE.OUT", "w") as fo:
+    fo.write(str(count))
+    fo.write("\n")
+    for num in nums:
+        fo.write(str(num) + " ")
