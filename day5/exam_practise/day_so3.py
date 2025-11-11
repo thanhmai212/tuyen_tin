@@ -8,7 +8,7 @@ print(min(list_n), list_n.index(min(list_n)) + 1)
 
 def is_increase(lst):
     for i in range(1, len(lst)):
-        if lst[i] <= lst[i - 1]:
+        if lst[i] < lst[i - 1]:
             return False
     return True
 
